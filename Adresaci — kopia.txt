@@ -1,0 +1,8 @@
+1|2|Mateusz|Klosek|506081403|mati@buziaczek.pl|ul. Dluga 1 Rutki 18-312|
+3|1|Ola|Gradzka|606606271|ola@kwiatuszek.pl|Obozowa 10 Warszawa 01-202|
+4|2|Bartosz|Boboryko|702 378 367|bobson@gmail.com|Szczytno 11-233, ul. Wysoka 15|
+6|2|Kinga|Godlewska|600 200 200|Kinga@onet.pl|Oltarzew 11-222, ul. Jasnogorska 5|
+7|1|Kimchi|Klosek|50601403|kimchithedog@gmail.com|Warszawa 11-123, ul. Radziwie 7|
+8|2|Ania|Shirley|111222333|ania@ania.pl|Zielone Wzgorza, ul. Zielona 11|
+9|1|Kimoslawa|Klosek|515566777|kimchi@dog.pl|Buda 11-222, ul. Psia 420|
+10|4|Mateusz|Klosek|506081403|klosekmateusz@gmail.com|Rutki 18-312, ul. Dluga 1|

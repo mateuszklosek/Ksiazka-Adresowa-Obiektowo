@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>1690</y>
+      <w>550</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>AdresatMenadzer
+-
+- plikZAdresatami: PlikZAdresatami
+-
++ wyswietlWszystkichAdresatow(): void
++ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>450</y>
+      <w>610</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>KsiazkaAdresowa
+-
+- uzytkownikMenadzer: UzytkownikMenadzer 
+- adresatMenadzer: AdresatMenadzer 
+- metodyPomocniczne: MetodyPomocniczne 
+- plikZAdresatami: PlikZAdresatami 
+- menu: Menu
+-
++ rejestracjaUzytkownika(): void 
++ wypiszWszystkichUzytkownikow(): void 
++ KsiazkaAdresowa() {uzytkownikMenadzer.wczytajUzytkownikowZPliku();};
++ logowanieUzytkownika(): integer
++ getChoice(): char
++ showMenu(): char
++ wybierzOpcjeZMenuUzytkownika(): char
++ wyswietlWszystkichAdresatow(): void
++ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): integer
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>0</y>
+      <w>310</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>Adresat
+-
+- id: integer
+- idUzytkownika: integer
+- imie: string 
+- nazwisko: string
+- numerTelefonu: string
+- email: string
+- adres: string
+-
+ustawId(int noweId);
++ ustawIdUzytkownika(int noweIdUzytkownika): void
++ ustawImie (string noweImie): void
++ ustawNazwisko(string noweNazwisko): void
++ ustawNumerTelefonu(string nowyNumerTelefonu): void
++ ustawEmail(string nowyEmail): void
++ ustawAdres(string nowyAdres): void
+
++ pobierzIdUzytkownika(): int
++ pobierzImie(): string 
++ pobierzNazwisko(): string 
++ pobierzNumerTelefonu(): string 
++ pobierzEmail(): string 
++ pobierzAdres(): string </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>870</y>
+      <w>450</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+-
++ konwersjaIntNaString(int liczba): static string 
++ getChoice(): char
++ wczytajLinie(): string
++ pobierzLiczbe(string tekst, int pozycjaZnaku): string
++ konwersjaStringNaInt(string liczba): integer
++ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string
++ czyPlikJestPusty(fstream &amp;plikTekstowy): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>760</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Menu
+-
+- metodyPomocniczne: MetodyPomocniczne
+-
++ wybor: char
++ showMenu(): char
++ wybierzOpcjeZMenuUzytkownika(): char</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>1050</y>
+      <w>760</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>PlikZAdresatami
+-
+class PlikZAdresatami {
+
+- metodyPomocniczne: MetodyPomocnicze
++ Adresat adresat;
+- plikTekstowy: fstream
+- nazwaPlikuZAdresatami = "Adresaci.txt": string
++ adresaci: vector &lt;Adresat&gt; 
+-
++ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
++ PlikZAdresatami() {
+wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);};
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): inte
++ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int
++ pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
++ wyswietlWszystkichAdresatow(): void
++ wyswietlDaneAdresata(int i): void
++ czyszczenieWektora(): void
++ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): int
++ podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): Adresat
++ dopiszAdresataDoPliku(): Adresat
++ zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>1450</y>
+      <w>840</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>PlikZUZytkownikami
+-
+- const string nazwaPlikuZUzytkownikami;
+- plikTekstowy: fstream
+-
+- czyPlikJestPusty(): bool
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik): string
+- pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami): Uzytkownik
++ PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI) : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
++ void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik): void
++ wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>1800</y>
+      <w>350</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+-
+- id:integer
+- login: string
+- haslo;: string
+-
++ ustawId(int noweId): void
++ ustawLogin (string nowyLogin): void
++ ustawHaslo(string noweHaslo): void
++ pobierzId(): int
++ pobierzLogin(): string
++ pobierzHaslo(): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>2030</y>
+      <w>690</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenadzer 
+-
+- idZalogowanegoUzytkownika: int
+- uzytkownicy: vector &lt;Uzytkownik&gt; 
+- PlikZUzytkownikami plikZUzytkownikami: PlikZUZytkownikami;
+- metodyPomocnicze: MetodyPomocniczne;
+- 
+- podajDaneNowegoUzytkownika(): Uzytkownik;
+- int pobierzIdNowegoUzytkownika(): int
+- czyIstniejeLogin(string login): bool
++ UzytkownikMenadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
++ rejestracjaUzytkownika(): void
++ wypiszWszystkichUzytkownikow(): void
++ wczytajUzytkownikowZPliku(): void
++ logowanieUzytkownika(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
