@@ -80,29 +80,6 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
     }
     return adresat;
 }
-void PlikZAdresatami::wyswietlWszystkichAdresatow() {
-    system("cls");
-    if (!adresaci.empty()) {
-        cout << "             >>> ADRESACI <<<" << endl;
-        cout << "-----------------------------------------------" << endl;
-        for (int i = 0; i < adresaci.size(); i++) {
-            wyswietlDaneAdresata(i);
-        }
-        cout << endl;
-    } else {
-        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
-    }
-    system("pause");
-}
-void PlikZAdresatami::wyswietlDaneAdresata(int i) {
-    cout << endl << "Id:                 "<< adresaci[i].pobierzId() << endl;
-    cout << "Imie:               " << adresaci[i].pobierzImie() << endl;
-    cout << "Nazwisko:           " << adresaci[i].pobierzNazwisko() << endl;
-    cout << "Numer telefonu:     " << adresaci[i].pobierzNumerTelefonu() << endl;
-    cout << "Email:              " << adresaci[i].pobierzEmail() << endl;
-    cout << "Adres:              " << adresaci[i].pobierzAdres() << endl;
-}
-
 
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     string liniaZDanymiAdresata = "";

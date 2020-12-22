@@ -28,6 +28,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(int i);
 };
 
 #endif
