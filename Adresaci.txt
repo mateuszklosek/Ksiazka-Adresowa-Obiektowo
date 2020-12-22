@@ -6,3 +6,5 @@
 8|2|Ania|Shirley|111222333|ania@ania.pl|Zielone Wzgorza, ul. Zielona 11|
 9|1|Kimoslawa|Klosek|515566777|kimchi@dog.pl|Buda 11-222, ul. Psia 420|
 10|4|Mateusz|Klosek|506081403|klosekmateusz@gmail.com|Rutki 18-312, ul. Dluga 1|
+11|1|Hejka|Sklejka|111222333|eloelo@elo.pl|Elowa ul ela|
+12|2|Olenka|Srenka|226636363|asdasda@asda.p|1221 asdasd asda|

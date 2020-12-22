@@ -4,26 +4,35 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
+      <x>40</x>
       <y>1690</y>
-      <w>550</w>
-      <h>90</h>
+      <w>620</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>AdresatMenadzer
 -
-- plikZAdresatami: PlikZAdresatami
+const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
+- adresaci: vector &lt;Adresat&gt; 
+- plikZAdresatami: PlikZAdresatami 
+- adresat: Adresat 
+- metodyPomocniczne: MetodyPomocniczne 
 -
 + wyswietlWszystkichAdresatow(): void
-+ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): integer</panel_attributes>
++ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): integer
++ podajDaneNowegoAdresata(): Adresat
++ AdresatMenadzer(int idZalogowanegoUzytkownika) : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
+    {
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    };</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>50</x>
-      <y>450</y>
-      <w>610</w>
-      <h>280</h>
+      <y>430</y>
+      <w>620</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 -
@@ -42,7 +51,9 @@
 + wybierzOpcjeZMenuUzytkownika(): char
 + wyswietlWszystkichAdresatow(): void
 + dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): integer
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): integer</panel_attributes>
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): integer
++ wylogowanieUzytkownika(): void
++ pobierzIdZalogowanegoUzytkownika(): integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -121,7 +132,7 @@ ustawId(int noweId);
     <coordinates>
       <x>50</x>
       <y>1050</y>
-      <w>760</w>
+      <w>880</w>
       <h>370</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
@@ -133,20 +144,21 @@ class PlikZAdresatami {
 - plikTekstowy: fstream
 - nazwaPlikuZAdresatami = "Adresaci.txt": string
 + adresaci: vector &lt;Adresat&gt; 
+- idOstatniegoAdresata: integer
 -
 + pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
 + PlikZAdresatami() {
-wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);};
+idOstatniegoAdresata = 0;};
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): inte
 + pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int
 + pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
 + wyswietlWszystkichAdresatow(): void
 + wyswietlDaneAdresata(int i): void
-+ czyszczenieWektora(): void
-+ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): int
-+ podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): Adresat
-+ dopiszAdresataDoPliku(): Adresat
-+ zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): string</panel_attributes>
++ dopiszAdresataDoPliku(Adresat adresat): void
++ zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat): string
++ pobierzIdOstatniegoAdresata(): integer
++ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -173,8 +185,8 @@ wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);};
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>1800</y>
+      <x>40</x>
+      <y>2020</y>
       <w>350</w>
       <h>200</h>
     </coordinates>
@@ -196,10 +208,10 @@ wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);};
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>2030</y>
-      <w>690</w>
-      <h>290</h>
+      <x>40</x>
+      <y>2240</y>
+      <w>720</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>UzytkownikMenadzer 
 -
@@ -211,12 +223,17 @@ wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);};
 - podajDaneNowegoUzytkownika(): Uzytkownik;
 - int pobierzIdNowegoUzytkownika(): int
 - czyIstniejeLogin(string login): bool
-+ UzytkownikMenadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
++ UzytkownikMenadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+        idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
 + rejestracjaUzytkownika(): void
 + wypiszWszystkichUzytkownikow(): void
 + wczytajUzytkownikowZPliku(): void
 + logowanieUzytkownika(): int
-</panel_attributes>
++ czyUzytkownikJestZalogowany(): bool
++ pobierzIdZalogowanegoUzytkownika(): integer
++ wylogowanieUzytkownika(): void</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

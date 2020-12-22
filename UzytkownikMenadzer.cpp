@@ -54,13 +54,11 @@ void UzytkownikMenadzer::wypiszWszystkichUzytkownikow() {
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
 }
-void UzytkownikMenadzer::wczytajUzytkownikowZPliku()
-{
-   uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+void UzytkownikMenadzer::wczytajUzytkownikowZPliku() {
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
-int UzytkownikMenadzer::logowanieUzytkownika()
-{
+int UzytkownikMenadzer::logowanieUzytkownika() {
     //Uzytkownik uzytkownik;
     string login = "", haslo = "";
 
@@ -71,18 +69,16 @@ int UzytkownikMenadzer::logowanieUzytkownika()
     //while (itr != uzytkownicy.end())
     for (int i = 0; i < uzytkownicy.size(); i++) {
 
-        if (uzytkownicy[i].pobierzLogin() == login)
-        {
-            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
-            {
+        if (uzytkownicy[i].pobierzLogin() == login) {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
                 haslo = metodyPomocnicze.wczytajLinie();
 
-                if (uzytkownicy[i].pobierzHaslo() == haslo)
-                {
+                if (uzytkownicy[i].pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return uzytkownicy[i].pobierzId();
+                    idZalogowanegoUzytkownika = uzytkownicy[i].pobierzId();
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
@@ -96,5 +92,16 @@ int UzytkownikMenadzer::logowanieUzytkownika()
     return 0;
 }
 
+bool UzytkownikMenadzer::czyUzytkownikJestZalogowany() {
+    if (idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
 
-
+int UzytkownikMenadzer::pobierzIdZalogowanegoUzytkownika() {
+    return idZalogowanegoUzytkownika;
+}
+void UzytkownikMenadzer::wylogowanieUzytkownika() {
+    idZalogowanegoUzytkownika=0;
+}

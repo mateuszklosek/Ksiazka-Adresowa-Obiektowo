@@ -17,25 +17,23 @@ class PlikZAdresatami {
     MetodyPomocniczne metodyPomocniczne;
     fstream plikTekstowy;
     string nazwaPlikuZAdresatami = "Adresaci.txt";
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int idOstatniegoAdresata;
 
 public:
 
     vector <Adresat> adresaci;
-    Adresat adresat;
     PlikZAdresatami() {
-        wczytajAdresatowZalogowanegoUzytkownikaZPliku(0);
+        idOstatniegoAdresata = 0;
     };
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(int i);
-    void czyszczenieWektora();
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    void dopiszAdresataDoPliku();
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami();
+    void dopiszAdresataDoPliku(Adresat adresat);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    int pobierzIdOstatniegoAdresata();
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 
 };
 

@@ -10,22 +10,30 @@ using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenadzer uzytkownikMenadzer;
-    AdresatMenadzer adresatMenadzer;
+    AdresatMenadzer *adresatMenadzer;
     MetodyPomocniczne metodyPomocniczne;
     PlikZAdresatami plikZAdresatami;
     Menu menu;
 
 public:
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenadzer(nazwaPlikuZUzytkownikami) {
+        adresatMenadzer = NULL;
+    };
+    ~KsiazkaAdresowa()
+    {
+        delete adresatMenadzer;
+        adresatMenadzer = NULL;
+    };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenadzer(nazwaPlikuZUzytkownikami) {
-        uzytkownikMenadzer.wczytajUzytkownikowZPliku();
-    };
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     char getChoice();
     char showMenu();
     char wybierzOpcjeZMenuUzytkownika();
     void wyswietlWszystkichAdresatow();
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    void dodajAdresata();
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wylogowanieUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+
 };
