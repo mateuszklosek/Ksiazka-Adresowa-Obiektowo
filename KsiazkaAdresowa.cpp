@@ -43,13 +43,32 @@ int KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogow
     plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::wylogowanieUzytkownika(){
+void KsiazkaAdresowa::wylogowanieUzytkownika() {
     uzytkownikMenadzer.wylogowanieUzytkownika();
     delete adresatMenadzer;
     adresatMenadzer = NULL;
 }
 
-int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika(){
-uzytkownikMenadzer.pobierzIdZalogowanegoUzytkownika();
+int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika() {
+    uzytkownikMenadzer.pobierzIdZalogowanegoUzytkownika();
 }
 
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku() {
+    adresatMenadzer -> wyszukajAdresatowPoNazwisku();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu() {
+    adresatMenadzer -> wyszukajAdresatowPoImieniu();
+}
+
+void KsiazkaAdresowa::usunAdresata() {
+    adresatMenadzer -> usunAdresata();
+}
+
+void KsiazkaAdresowa::edytujAdresata() {
+    adresatMenadzer -> edytujAdresata();
+}
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikMenadzer.zmianaHaslaZalogowanegoUzytkownika();
+}

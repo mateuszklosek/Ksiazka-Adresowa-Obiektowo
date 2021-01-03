@@ -9,6 +9,7 @@
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
 #include "MetodyPomocniczne.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class AdresatMenadzer {
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
     Adresat adresat;
+    Menu menu;
     MetodyPomocniczne metodyPomocniczne;
 
 public:
@@ -29,6 +31,12 @@ public:
     void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(int i);
+    void wyszukajAdresatowPoNazwisku();
+    void wyszukajAdresatowPoImieniu();
+    void usunAdresata();
+    void edytujAdresata();
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+
 };
 
 #endif

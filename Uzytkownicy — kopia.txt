@@ -1,0 +1,10 @@
+1|mati|123|
+2|ola|123|
+3|ola123|123|
+4|hej222|kkk|
+5|asdas|asdas|
+6|Mati123|123|
+7|asdasda|asda|
+8|sadasd|asdads|
+9|asdasd|asdsad|
+10|hejka|sklejka|

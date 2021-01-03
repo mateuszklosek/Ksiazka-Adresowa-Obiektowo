@@ -15,6 +15,7 @@ public:
     char wybor;
     char showMenu();
     char wybierzOpcjeZMenuUzytkownika();
+    char wybierzOpcjeZMenuEdycja();
     };
 
 

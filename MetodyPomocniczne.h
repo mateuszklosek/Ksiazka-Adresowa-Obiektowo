@@ -19,6 +19,9 @@ public:
     int konwersjaStringNaInt(string liczba);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     bool czyPlikJestPusty(fstream &plikTekstowy);
+    int wczytajLiczbeCalkowita();
+    char wczytajZnak();
+    int podajIdWybranegoAdresata();
 };
 
 
