@@ -119,9 +119,8 @@ void AdresatMenadzer::wyszukajAdresatowPoImieniu() {
     system("pause");
 }
 
-void AdresatMenadzer::usunAdresata() {
+int AdresatMenadzer::usunAdresata() {
     int idUsuwanegoAdresata = 0;
-    int numerLiniiUsuwanegoAdresata = 0;
 
     system("cls");
     cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
@@ -133,10 +132,8 @@ void AdresatMenadzer::usunAdresata() {
     char znak;
     bool czyIstniejeAdresat = false;
 
-    //for (int i = 0; i < adresaci.size(); i++)
     for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
         if (itr -> pobierzId() == idUsuwanegoAdresata)
-            //if (adresaci[i].pobierzId() == idUsuwanegoAdresata)
         {
             czyIstniejeAdresat = true;
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
@@ -145,17 +142,23 @@ void AdresatMenadzer::usunAdresata() {
                 plikZAdresatami.usunWybranegoAdresata(idUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
-                plikZAdresatami.ustawIdOstatniegoUzytkownika(plikZAdresatami.IdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsuwanegoAdresata));
+                int idOstatniegoAdresata = plikZAdresatami.pobierzIdOstatniegoAdresata();
+                int noweIdOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsuwanegoAdresata, idOstatniegoAdresata);
+                plikZAdresatami.ustawIdOstatniegoAdresata(noweIdOstatniegoAdresata);
+                cout << idOstatniegoAdresata;
                 system("pause");
+                return idOstatniegoAdresata;
             } else {
                 cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
                 system("pause");
+                return 0;
             }
         }
     }
     if (czyIstniejeAdresat == false) {
         cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
         system("pause");
+        return 0;
     }
 }
 
@@ -237,3 +240,10 @@ void AdresatMenadzer::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEd
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
 }
 
+int AdresatMenadzer::podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata, int idOstatniegoAdresata)
+{
+    if (idUsuwanegoAdresata == idOstatniegoAdresata)
+        return plikZAdresatami.pobierzZPlikuIdOstatniegoAdresata();
+    else
+        return idOstatniegoAdresata;
+}

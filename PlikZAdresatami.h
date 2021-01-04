@@ -39,7 +39,7 @@ public:
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     int IdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata);
     int pobierzZPlikuIdOstatniegoAdresata();
-    void ustawIdOstatniegoUzytkownika(int noweIdOstatniegoUzytkownika);
+    void ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata);
     int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
     void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
 

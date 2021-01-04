@@ -33,9 +33,10 @@ public:
     void wyswietlDaneAdresata(int i);
     void wyszukajAdresatowPoNazwisku();
     void wyszukajAdresatowPoImieniu();
-    void usunAdresata();
+    int usunAdresata();
     void edytujAdresata();
     void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+    int podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata, int idOstatniegoAdresata);
 
 };
 

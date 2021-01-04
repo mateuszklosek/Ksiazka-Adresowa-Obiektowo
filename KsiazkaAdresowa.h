@@ -37,7 +37,7 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void wyszukajAdresatowPoNazwisku();
     void wyszukajAdresatowPoImieniu();
-    void usunAdresata();
+    int usunAdresata();
     void edytujAdresata();
     void zmianaHaslaZalogowanegoUzytkownika();
 

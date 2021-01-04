@@ -61,7 +61,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu() {
     adresatMenadzer -> wyszukajAdresatowPoImieniu();
 }
 
-void KsiazkaAdresowa::usunAdresata() {
+int KsiazkaAdresowa::usunAdresata() {
     adresatMenadzer -> usunAdresata();
 }
 

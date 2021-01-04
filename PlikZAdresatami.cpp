@@ -191,9 +191,9 @@ int PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
     return idOstatniegoAdresata1;
 }
 
-void PlikZAdresatami::ustawIdOstatniegoUzytkownika(int noweIdOstatniegoUzytkownika)
+void PlikZAdresatami::ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata)
 {
-    idOstatniegoAdresata = noweIdOstatniegoUzytkownika;
+    idOstatniegoAdresata = noweIdOstatniegoAdresata;
 }
 
 int PlikZAdresatami::zwrocNumerLiniiSzukanegoAdresata(int idAdresata)

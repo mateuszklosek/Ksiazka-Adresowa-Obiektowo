@@ -55,9 +55,7 @@ int main() {
 
                 break;
             case '5':
-                KsiazkaAdresowa.usunAdresata();
-                //idUsunietegoAdresata = usunAdresata(adresaci);
-                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+                plikZAdresatami.ustawIdOstatniegoAdresata(KsiazkaAdresowa.usunAdresata());
                 break;
             case '6':
                 KsiazkaAdresowa.edytujAdresata();
