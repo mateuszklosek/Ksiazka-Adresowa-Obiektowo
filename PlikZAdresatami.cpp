@@ -92,7 +92,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
         if (metodyPomocniczne.czyPlikJestPusty(plikTekstowy) == true) {
             plikTekstowy << liniaZDanymiAdresata;
         } else {
-            plikTekstowy << endl << liniaZDanymiAdresata ;
+            plikTekstowy << endl << liniaZDanymiAdresata;
         }
     } else {
         cout << "Nie udalo sie otworzyc pliku i zapisac w nim danych." << endl;
@@ -124,12 +124,13 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata() {
 
 void PlikZAdresatami::usunWybranegoAdresata(int idUsuwanegoAdresata) {
     string wczytanaLinia = "";
+    int numerUsuwanejLinii = 0;
 
     plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good() == true) {
-        while(getline(plikTekstowy, wczytanaLinia)) {
+       /* while(getline(plikTekstowy, wczytanaLinia)) {
             if(idUsuwanegoAdresata != pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia)) {
                 if (pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia) == idOstatniegoAdresata-1) {
                     tymczasowyPlikTekstowy << wczytanaLinia;
@@ -138,10 +139,20 @@ void PlikZAdresatami::usunWybranegoAdresata(int idUsuwanegoAdresata) {
                     tymczasowyPlikTekstowy << wczytanaLinia<< endl;
                 }
             }
+        } */
+        while(getline(plikTekstowy, wczytanaLinia)) {
+            if(idUsuwanegoAdresata != pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia)) {
+                if (numerUsuwanejLinii == 0) {
+                    tymczasowyPlikTekstowy << wczytanaLinia;
+                }
+                else {
+                    tymczasowyPlikTekstowy << endl << wczytanaLinia;
+                }
+            }
+            numerUsuwanejLinii++;
         }
         plikTekstowy.close();
         tymczasowyPlikTekstowy.close();
-
         usunPlik(nazwaPlikuZAdresatami);
         zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, nazwaPlikuZAdresatami);
     }

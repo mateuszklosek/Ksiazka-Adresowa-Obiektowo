@@ -52,7 +52,6 @@ int main() {
                 break;
             case '4':
                 KsiazkaAdresowa.wyswietlWszystkichAdresatow();
-
                 break;
             case '5':
                 plikZAdresatami.ustawIdOstatniegoAdresata(KsiazkaAdresowa.usunAdresata());
